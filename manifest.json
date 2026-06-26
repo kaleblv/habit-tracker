@@ -1,0 +1,20 @@
+{
+  "name": "Hábitos",
+  "short_name": "Hábitos",
+  "description": "Seguimiento de hábitos con racha diaria",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0C0C1A",
+  "theme_color": "#0C0C1A",
+  "orientation": "portrait-primary",
+  "categories": ["health", "lifestyle", "productivity"],
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

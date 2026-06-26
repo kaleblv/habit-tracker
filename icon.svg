@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="22" fill="#0C0C1A"/>
+  <rect width="100" height="100" rx="22" fill="#8B5CF6" opacity="0.15"/>
+  <!-- Checkmark -->
+  <path d="M24 52 L41 70 L76 30"
+        stroke="#8B5CF6" stroke-width="8"
+        stroke-linecap="round" stroke-linejoin="round"
+        fill="none"/>
+  <!-- Subtle glow dot -->
+  <circle cx="41" cy="70" r="5" fill="#34D399" opacity="0.8"/>
+</svg>
