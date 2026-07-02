@@ -364,6 +364,7 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
   grid-template-columns: repeat(8, 1fr);
   gap: 6px;
 }
+.emoji-grid > * { min-width: 0; }
 .emoji-btn {
   aspect-ratio: 1;
   border-radius: 10px;
@@ -380,6 +381,10 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 
 /* Custom emoji tile — opens the system emoji keyboard */
 .emoji-btn.custom-emoji-input {
+  min-width: 0;   /* inputs have a large default min-content width that
+                      otherwise blows up every column in the 8-col grid */
+  width: 100%;
+  box-sizing: border-box;
   border-style: dashed;
   border-color: var(--border-up);
   color: var(--text);
