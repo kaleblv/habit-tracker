@@ -3,7 +3,7 @@
    Cache-first strategy · offline-ready
    ============================================= */
 
-const CACHE = 'habitos-v1';
+const CACHE = 'habitos-v3';
 
 const PRECACHE = [
   '/',
