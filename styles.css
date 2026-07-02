@@ -378,6 +378,20 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
 .emoji-btn:hover { border-color: var(--border-up); transform: scale(1.08); }
 .emoji-btn.selected { border-color: var(--accent); background: var(--accent-dim); }
 
+/* Custom emoji tile — opens the system emoji keyboard */
+.emoji-btn.custom-emoji-input {
+  border-style: dashed;
+  border-color: var(--border-up);
+  color: var(--text);
+  text-align: center;
+  padding: 0;
+  outline: none;
+  -webkit-appearance: none;
+}
+.emoji-btn.custom-emoji-input::placeholder { color: var(--text-dim); font-size: 16px; opacity: 1; }
+.emoji-btn.custom-emoji-input:focus { border-style: solid; border-color: var(--accent); }
+.emoji-btn.custom-emoji-input.selected { border-style: solid; border-color: var(--accent); background: var(--accent-dim); }
+
 /* Color swatches */
 .color-picker { display: flex; gap: 8px; flex-wrap: wrap; }
 .color-swatch {
@@ -651,4 +665,135 @@ button { font-family: var(--font); cursor: pointer; border: none; background: no
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms  !important;
   }
+}
+
+/* ── Frequency additions ─────────────────────────────── */
+
+/* Habit name + freq sub-label wrapper */
+.habit-name-wrap { display: flex; flex-direction: column; }
+.habit-freq {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-dim);
+  margin-top: 1px;
+  letter-spacing: 0.02em;
+}
+
+/* Rest/non-scheduled day dot — shows a horizontal dash */
+.day-dot.rest {
+  border-color: transparent;
+  background: transparent;
+  position: relative;
+}
+.day-dot.rest::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 22%;
+  right: 22%;
+  height: 1.5px;
+  background: var(--text-dim);
+  border-radius: 1px;
+  transform: translateY(-50%);
+  opacity: 0.45;
+}
+
+/* Rest indicator on card (instead of check button) */
+.rest-indicator {
+  font-size: 18px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.45;
+}
+
+/* Today card — rest day variant */
+.today-card.rest-day {
+  opacity: 0.55;
+  cursor: default;
+}
+
+/* ── Day picker (in add modal) ───────────────────────── */
+.day-picker {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.day-pick-btn {
+  aspect-ratio: 1;
+  border-radius: var(--r-sm);
+  background: var(--surface-up);
+  border: 1.5px solid var(--border);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  font-family: var(--font);
+}
+.day-pick-btn:hover:not(.selected) {
+  border-color: var(--border-up);
+  color: var(--text);
+}
+.day-pick-btn.selected {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+
+/* Preset shortcut row */
+.freq-shortcuts {
+  display: flex;
+  gap: 6px;
+  margin-top: 2px;
+}
+.freq-shortcut {
+  flex: 1;
+  padding: 6px 0;
+  border-radius: 8px;
+  background: var(--surface-up);
+  border: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font);
+  transition: color 0.12s, border-color 0.12s, background 0.12s;
+  text-align: center;
+}
+.freq-shortcut:hover {
+  color: var(--accent-light);
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* ── Calendar legend chips ───────────────────────────── */
+.cal-legend {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.cal-legend-chip {
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--accent-dim);
+  color: var(--accent-light);
+  border: 1px solid rgba(139,92,246,.2);
+}
+
+/* ── Calendar non-scheduled days ─────────────────────── */
+.cal-day.no-sched {
+  opacity: 0.15;
+  pointer-events: none;
+  font-weight: 400;
 }
